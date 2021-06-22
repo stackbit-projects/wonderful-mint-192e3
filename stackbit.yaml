@@ -1,0 +1,767 @@
+stackbitVersion: ~0.3.0
+dataDir: config
+pagesDir: docs
+models:
+  doc:
+    type: page
+    label: Doc
+    match: '*'
+    fields: []
+  app:
+    type: data
+    label: App
+    file: app.yml
+    fields:
+      - type: object
+        name: app
+        label: App
+        fields:
+          - type: string
+            name: name
+            label: Name
+          - type: string
+            name: domain
+            label: Domain
+          - type: string
+            name: subdomain
+            label: Subdomain
+          - type: boolean
+            name: show_landing
+            label: Show Landing
+      - type: boolean
+        name: render_protect
+        label: Render Protect
+      - type: boolean
+        name: csrfEnabled
+        label: Csrf Enabled
+      - type: object
+        name: ssl
+        label: Ssl
+        fields:
+          - type: boolean
+            name: enabled
+            label: Enabled
+          - type: string
+            name: email
+            label: Email
+      - type: boolean
+        name: updateVersions
+        label: Update Versions
+      - type: object
+        name: images
+        label: Images
+        fields:
+          - type: string
+            name: peatio
+            label: Peatio
+          - type: string
+            name: barong
+            label: Barong
+          - type: string
+            name: frontend
+            label: Frontend
+          - type: string
+            name: tower
+            label: Tower
+          - type: string
+            name: rango
+            label: Rango
+      - type: object
+        name: finex
+        label: Finex
+        fields:
+          - type: boolean
+            name: enabled
+            label: Enabled
+          - type: string
+            name: image
+            label: Image
+          - type: string
+            name: license_key
+            label: License Key
+      - type: object
+        name: vendor
+        label: Vendor
+        fields:
+          - type: string
+            name: frontend
+            label: Frontend
+      - type: object
+        name: kyc
+        label: Kyc
+        fields:
+          - type: string
+            name: provider
+            label: Provider
+          - type: string
+            name: authorization_token
+            label: Authorization Token
+          - type: boolean
+            name: sandbox_mode
+            label: Sandbox Mode
+          - type: string
+            name: api_endpoint
+            label: Api Endpoint
+      - type: object
+        name: vault
+        label: Vault
+        fields:
+          - type: string
+            name: root_token
+            label: Root Token
+          - type: string
+            name: peatio_rails_token
+            label: Peatio Rails Token
+          - type: string
+            name: peatio_crypto_token
+            label: Peatio Crypto Token
+          - type: string
+            name: peatio_upstream_token
+            label: Peatio Upstream Token
+          - type: string
+            name: peatio_matching_token
+            label: Peatio Matching Token
+          - type: string
+            name: barong_token
+            label: Barong Token
+          - type: string
+            name: finex_engine_token
+            label: Finex Engine Token
+      - type: object
+        name: database
+        label: Database
+        fields:
+          - type: string
+            name: host
+            label: Host
+          - type: string
+            name: adapter
+            label: Adapter
+          - type: number
+            name: port
+            label: Port
+            subtype: int
+          - type: string
+            name: user
+            label: User
+          - type: string
+            name: password
+            label: Password
+      - type: object
+        name: storage
+        label: Storage
+        fields:
+          - type: string
+            name: provider
+            label: Provider
+          - type: string
+            name: bucketName
+            label: Bucket Name
+          - type: string
+            name: region
+            label: Region
+          - type: string
+            name: endpoint
+            label: Endpoint
+          - type: string
+            name: accessKey
+            label: Access Key
+          - type: string
+            name: secretKey
+            label: Secret Key
+          - type: string
+            name: signatureVersion
+            label: Signature Version
+      - type: object
+        name: twilio
+        label: Twilio
+        fields:
+          - type: boolean
+            name: enabled
+            label: Enabled
+          - type: string
+            name: phone_number
+            label: Phone Number
+          - type: string
+            name: account_sid
+            label: Account Sid
+          - type: string
+            name: auth_token
+            label: Auth Token
+      - type: string
+        name: gaTrackerKey
+        label: Ga Tracker Key
+      - type: object
+        name: captcha
+        label: Captcha
+        fields:
+          - type: string
+            name: type
+            label: Type
+          - type: string
+            name: siteKey
+            label: Site Key
+          - type: string
+            name: secretKey
+            label: Secret Key
+      - type: object
+        name: smtp
+        label: Smtp
+        fields:
+          - type: string
+            name: host
+            label: Host
+          - type: number
+            name: port
+            label: Port
+            subtype: int
+          - type: string
+            name: user
+            label: User
+          - type: string
+            name: password
+            label: Password
+          - type: string
+            name: sender_email
+            label: Sender Email
+          - type: string
+            name: sender_name
+            label: Sender Name
+          - type: image
+            name: sender_logo
+            label: Sender Logo
+      - type: object
+        name: wallets
+        label: Wallets
+        fields:
+          - type: list
+            name: eth
+            label: Eth
+            items:
+              type: object
+              fields:
+                - type: string
+                  name: kind
+                  label: Kind
+                - type: string
+                  name: address
+                  label: Address
+                - type: number
+                  name: max_balance
+                  label: Max Balance
+                  subtype: int
+                - type: string
+                  name: secret
+                  label: Secret
+          - type: list
+            name: btc
+            label: Btc
+            items:
+              type: object
+              fields:
+                - type: string
+                  name: kind
+                  label: Kind
+                - type: string
+                  name: address
+                  label: Address
+                - type: number
+                  name: max_balance
+                  label: Max Balance
+                  subtype: int
+      - type: object
+        name: parity
+        label: Parity
+        fields:
+          - type: string
+            name: network
+            label: Network
+          - type: string
+            name: address
+            label: Address
+          - type: number
+            name: rpcport
+            label: Rpcport
+            subtype: int
+          - type: number
+            name: port
+            label: Port
+            subtype: int
+      - type: object
+        name: bitcoind
+        label: Bitcoind
+        fields:
+          - type: boolean
+            name: enabled
+            label: Enabled
+          - type: string
+            name: rpcuser
+            label: Rpcuser
+          - type: string
+            name: rpcpassword
+            label: Rpcpassword
+          - type: string
+            name: address
+            label: Address
+          - type: string
+            name: network
+            label: Network
+          - type: number
+            name: rpcport
+            label: Rpcport
+            subtype: int
+          - type: number
+            name: port
+            label: Port
+            subtype: int
+      - type: object
+        name: litecoind
+        label: Litecoind
+        fields:
+          - type: string
+            name: rpcuser
+            label: Rpcuser
+          - type: string
+            name: rpcpassword
+            label: Rpcpassword
+          - type: string
+            name: address
+            label: Address
+          - type: string
+            name: network
+            label: Network
+          - type: number
+            name: rpcport
+            label: Rpcport
+            subtype: int
+          - type: number
+            name: port
+            label: Port
+            subtype: int
+      - type: object
+        name: terraform
+        label: Terraform
+        fields:
+          - type: string
+            name: credentials
+            label: Credentials
+          - type: string
+            name: project
+            label: Project
+          - type: string
+            name: region
+            label: Region
+          - type: string
+            name: zone
+            label: Zone
+          - type: string
+            name: instance_name
+            label: Instance Name
+          - type: string
+            name: machine_type
+            label: Machine Type
+          - type: string
+            name: image
+            label: Image
+  authz_rules:
+    type: data
+    label: Authz Rules
+    file: barong/authz_rules.yml
+    fields:
+      - type: object
+        name: rules
+        label: Rules
+        fields:
+          - type: list
+            name: pass
+            label: Pass
+            items:
+              type: string
+          - type: list
+            name: block
+            label: Block
+            items:
+              type: string
+  barong:
+    type: data
+    label: Barong
+    file: barong/barong.yml
+    fields:
+      - type: object
+        name: activation_requirements
+        label: Activation Requirements
+        fields:
+          - type: string
+            name: email
+            label: Email
+      - type: object
+        name: state_triggers
+        label: State Triggers
+        fields:
+          - type: list
+            name: banned
+            label: Banned
+            items:
+              type: string
+          - type: list
+            name: deleted
+            label: Deleted
+            items:
+              type: string
+          - type: list
+            name: locked
+            label: Locked
+            items:
+              type: string
+      - type: list
+        name: document_types
+        label: Document Types
+        items:
+          type: string
+  utils:
+    type: data
+    label: Utils
+    file: utils.yml
+    fields:
+      - type: object
+        name: images
+        label: Images
+        fields:
+          - type: string
+            name: applogic
+            label: Applogic
+          - type: string
+            name: arke
+            label: Arke
+          - type: string
+            name: superset
+            label: Superset
+      - type: object
+        name: superset
+        label: Superset
+        fields:
+          - type: string
+            name: email
+            label: Email
+          - type: string
+            name: username
+            label: Username
+          - type: string
+            name: password
+            label: Password
+      - type: object
+        name: arke
+        label: Arke
+        fields:
+          - type: string
+            name: log_level
+            label: Log Level
+          - type: list
+            name: accounts
+            label: Accounts
+            items:
+              type: object
+              fields:
+                - type: number
+                  name: id
+                  label: Id
+                  subtype: int
+                - type: string
+                  name: driver
+                  label: Driver
+                - type: boolean
+                  name: debug
+                  label: Debug
+                - type: string
+                  name: host
+                  label: Host
+                - type: string
+                  name: ws
+                  label: Ws
+                - type: string
+                  name: key
+                  label: Key
+                - type: string
+                  name: secret
+                  label: Secret
+                - type: number
+                  name: delay
+                  label: Delay
+                  subtype: int
+          - type: list
+            name: strategies
+            label: Strategies
+            items:
+              type: model
+              models:
+                - object_yfq8hu3fwc
+                - object_e7cfc21stq
+  object_yfq8hu3fwc:
+    type: object
+    label: Object 1
+    fields:
+      - type: number
+        name: id
+        label: Id
+        subtype: int
+      - type: string
+        name: type
+        label: Type
+      - type: boolean
+        name: debug
+        label: Debug
+      - type: boolean
+        name: enabled
+        label: Enabled
+      - type: number
+        name: period
+        label: Period
+        subtype: int
+      - type: object
+        name: params
+        label: Params
+        fields:
+          - type: number
+            name: spread_bids
+            label: Spread Bids
+            subtype: float
+          - type: number
+            name: spread_asks
+            label: Spread Asks
+            subtype: float
+          - type: number
+            name: limit_asks_base
+            label: Limit Asks Base
+            subtype: float
+          - type: number
+            name: limit_bids_base
+            label: Limit Bids Base
+            subtype: float
+          - type: number
+            name: levels_size
+            label: Levels Size
+            subtype: float
+          - type: number
+            name: levels_count
+            label: Levels Count
+            subtype: int
+          - type: string
+            name: side
+            label: Side
+          - type: boolean
+            name: enable_orderback
+            label: Enable Orderback
+      - type: object
+        name: target
+        label: Target
+        fields:
+          - type: number
+            name: account_id
+            label: Account Id
+            subtype: int
+          - type: object
+            name: market
+            label: Market
+            fields:
+              - type: string
+                name: id
+                label: Id
+              - type: string
+                name: base
+                label: Base
+              - type: string
+                name: quote
+                label: Quote
+              - type: number
+                name: base_precision
+                label: Base Precision
+                subtype: int
+              - type: number
+                name: quote_precision
+                label: Quote Precision
+                subtype: int
+              - type: number
+                name: min_ask_amount
+                label: Min Ask Amount
+                subtype: float
+              - type: number
+                name: min_bid_amount
+                label: Min Bid Amount
+                subtype: float
+      - type: list
+        name: sources
+        label: Sources
+        items:
+          type: object
+          fields:
+            - type: number
+              name: account_id
+              label: Account Id
+              subtype: int
+            - type: object
+              name: market
+              label: Market
+              fields:
+                - type: string
+                  name: id
+                  label: Id
+                - type: string
+                  name: base
+                  label: Base
+                - type: string
+                  name: quote
+                  label: Quote
+                - type: number
+                  name: base_precision
+                  label: Base Precision
+                  subtype: int
+                - type: number
+                  name: quote_precision
+                  label: Quote Precision
+                  subtype: int
+                - type: number
+                  name: min_order_back_amount
+                  label: Min Order Back Amount
+                  subtype: float
+  object_e7cfc21stq:
+    type: object
+    label: Object 2
+    fields:
+      - type: number
+        name: id
+        label: Id
+        subtype: int
+      - type: string
+        name: type
+        label: Type
+      - type: boolean
+        name: debug
+        label: Debug
+      - type: number
+        name: period
+        label: Period
+        subtype: int
+      - type: number
+        name: period_random_delay
+        label: Period Random Delay
+        subtype: int
+      - type: object
+        name: params
+        label: Params
+        fields:
+          - type: number
+            name: linked_strategy_id
+            label: Linked Strategy Id
+            subtype: int
+          - type: number
+            name: min_amount
+            label: Min Amount
+            subtype: float
+          - type: number
+            name: max_amount
+            label: Max Amount
+            subtype: int
+          - type: number
+            name: min_price
+            label: Min Price
+            subtype: int
+          - type: number
+            name: max_price
+            label: Max Price
+            subtype: int
+      - type: object
+        name: target
+        label: Target
+        fields:
+          - type: number
+            name: account_id
+            label: Account Id
+            subtype: int
+          - type: object
+            name: market
+            label: Market
+            fields:
+              - type: string
+                name: id
+                label: Id
+              - type: string
+                name: base
+                label: Base
+              - type: string
+                name: quote
+                label: Quote
+              - type: number
+                name: base_precision
+                label: Base Precision
+                subtype: int
+              - type: number
+                name: quote_precision
+                label: Quote Precision
+                subtype: int
+              - type: number
+                name: min_ask_amount
+                label: Min Ask Amount
+                subtype: float
+              - type: number
+                name: min_bid_amount
+                label: Min Bid Amount
+                subtype: float
+      - type: object
+        name: strategy
+        label: Strategy
+        fields:
+          - type: string
+            name: type
+            label: Type
+          - type: number
+            name: volume_ratio
+            label: Volume Ratio
+            subtype: float
+          - type: object
+            name: target
+            label: Target
+            fields:
+              - type: string
+                name: driver
+                label: Driver
+              - type: string
+                name: market
+                label: Market
+              - type: string
+                name: host
+                label: Host
+              - type: string
+                name: key
+                label: Key
+              - type: string
+                name: secret
+                label: Secret
+              - type: number
+                name: rate_limit
+                label: Rate Limit
+                subtype: int
+          - type: list
+            name: sources
+            label: Sources
+            items:
+              type: object
+              fields:
+                - type: string
+                  name: driver
+                  label: Driver
+                - type: string
+                  name: market
+                  label: Market
+                - type: string
+                  name: host
+                  label: Host
+                - type: string
+                  name: key
+                  label: Key
+                - type: string
+                  name: secret
+                  label: Secret
+                - type: number
+                  name: rate_limit
+                  label: Rate Limit
+                  subtype: float
